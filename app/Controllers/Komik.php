@@ -13,10 +13,10 @@ class Komik extends BaseController
 
     public function index()
     {
-        $komik = $this->komikModel->findAll();
+        // $komik = $this->komikModel->findAll();
         $data = [
             'title' => 'Daftar Komik',
-            'komik' => $komik
+            'komik' => $this->komikModel->getKomik()
         ];
 
         // $db = \Config\Database::connect();
@@ -25,5 +25,24 @@ class Komik extends BaseController
         // $komikModel = new \App\Models\KomikModel();
        
         return view('komik/index', $data);
+    }
+
+    public function detail($slug)
+    {
+       
+        $data = [
+            'title' => 'Detal Komik',
+            'komik' =>  $this->komikModel->getKomik($slug)
+        ];
+        return view('komik/detail', $data);
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Form Tambah Data Komik'
+        ];
+        return view('komik/create', $data);
+
     }
 }

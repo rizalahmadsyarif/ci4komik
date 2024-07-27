@@ -5,6 +5,7 @@
     <div class="row mt-4">
         <div class="col">
             <h1>📃Dafta Komik</h1>
+            <a href="/komik/create" class="btn btn-success">Tambah Data Komik</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -22,7 +23,7 @@
                         <td><img src="/img/<?= $k['sampul']; ?>" alt="" class="sampul"></td>
                         <td><?= $k['judul']; ?></td>
                         <td>
-                            <a href="http://" class="btn btn-primary" rel="noopener noreferrer">Detail</a>
+                            <a href="/komik/<?= $k['slug']; ?>" class="btn btn-primary" rel="noopener noreferrer">Detail</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
